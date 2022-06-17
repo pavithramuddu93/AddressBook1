@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook {
-
     List<Contacts> list = new ArrayList<>();
     Scanner in = new Scanner(System.in);
 
@@ -13,7 +12,7 @@ public class AddressBook {
         System.out.println("How many contacts you want to create");
         int contactcount = in.nextInt();
         for (int i = 1; i <= contactcount; i++) {
-            System.out.println("Enter the First Name of:");
+            System.out.println("Enter the First Name:");
             String firstname = in.next();
             System.out.println("Enter the Last Name:");
             String lastname = in.next();
@@ -67,5 +66,12 @@ public class AddressBook {
                 displayListItems();
             }
         }
+    }
+
+    public void deleteContact() {
+        System.out.println("Enter the first name of the contact to be deleted");
+        String newName = in.next();
+        list.removeIf(someinfo -> someinfo.getFirstName().contains(newName));
+        displayListItems();
     }
 }
