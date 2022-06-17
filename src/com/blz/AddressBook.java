@@ -2,8 +2,10 @@ package com.blz;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 public class AddressBook {
-    List<Contact> list = new ArrayList<>();
+
+    List<Contacts> list = new ArrayList<>();
 
     public void setUpInfo() {
         Scanner in = new Scanner(System.in);
@@ -26,16 +28,15 @@ public class AddressBook {
             long phone = in.nextLong();
             System.out.println("Enter email id:");
             String email = in.next();
-            Contact contact = new Contact(firstname, lastname, address, city, state, zip, phone, email);
+            Contacts contact = new Contacts(firstname, lastname, address, city, state, zip, phone, email);
             list.add(contact);
         }
     }
 
     public void displayListItems() {
-        for (Contact someinfo : list) {
+        for (Contacts someinfo : list) {
             System.out.println(someinfo.getFirstName() + "  " + someinfo.getLastName() + "  " + someinfo.getAddress() + "  " + someinfo.getCity() + "  " + someinfo.getState() + "  " + someinfo.getZip() + "  " + someinfo.getPhoneNo() + "  " + someinfo.getEmail());
         }
 
     }
 }
-
